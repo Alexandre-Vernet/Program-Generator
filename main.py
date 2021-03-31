@@ -1,29 +1,42 @@
+import tkinter as tk
+from tkinter import filedialog, Text
 import os
 
-print('Créer un projet : \n')
+root = tk.Tk()
+root.title("My app")
 
-# Choose technology
-print("1- Angular")
-print("2- Laravel")
-print("3- React Native")
-print("4- Ionic")
-technology = input('Quelle technologie voulez-vous utiliser ? ')
 
-# Project name
-projectName = input('Quel est le nom de votre programme ? ')
-
-# Angular
-if technology == '1':
+def createProjectAngular():
     # Set repository destination
-    # os.system('cmd /k cd C:\\Users\\alexa\\Documents\\Dev\\Web\\Front\\Angular\\')
+    # os.system('cmd /k cd C:/Users/alexa/Documents/Dev/Web/Front/Angular/')
 
     # Generate project
-    os.system('cmd /k ng new ' + projectName +
-              ' --style=scss --routing --strict')
+    os.system('cmd /k ng new C:/Users/alexa/Documents/Dev/Web/Front/Angular/couocu --style=scss --routing --strict')
 
-    # Open in VS Code
-    os.system('cmd /k cd ' + projectName)
-    os.system('cmd /k code .')
+    # # Open in VS Code
+    # os.system('cmd /k cd ' + "projectName")
+    # os.system('cmd /k code .')
 
-    # Start server
-    os.system('cmd /k ng serve')
+    # # Start server
+    # os.system('cmd /k ng serve')
+
+
+def generatePath():
+
+    fileName = filedialog.askdirectory(
+        initialdir="C:/Users/alexa/Documents/Dev/Web/Front/Angular/", title="Select file")
+
+    os.system("cmd /c cd " + fileName)
+    os.system('cmd /c ng new coucou --style=scss --routing --strict')
+
+
+frame = tk.Frame(root, bg="white")
+frame.place(relwidth=1, relheight=1)
+
+btnAngular = tk.Button(frame, text="Angular", padx=10,
+                       pady=5, fg="white", bg="#FF0000", command=createProjectAngular).pack()
+
+openFile = tk.Button(frame, text="Open File", padx=10, pady=5,
+                     fg="white", bg="#263D42", command=generatePath).pack()
+
+root.mainloop()
