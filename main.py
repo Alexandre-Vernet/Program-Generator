@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter import filedialog, Text, simpledialog
 import os
+import getpass
 
 root = tk.Tk()
 root.title("Program Generator")
@@ -13,24 +14,26 @@ def createProjectAngular():
 
     # Set repository destination
     fileName = filedialog.askdirectory(
-        initialdir="C:/Users/alexa/Documents/Dev/Web/Front/Angular/", title="Select file")
+        initialdir=getpass.getuser() + "\Documents", title="Select file")
+
     print(fileName)
 
-    # Set project name
-    projectName = simpledialog.askstring(title="Name",
-                                         prompt="Quel est le nom de votre programme ? ")
+    if not fileName:
+        # Set project name
+        projectName = simpledialog.askstring(title="Name",
+                                             prompt="Quel est le nom de votre programme ? ")
 
-    # Generate project
-    os.system("cmd /c cd " + fileName)
-    os.system("cmd /c ng new " + projectName +
-              " --style=scss --routing --strict")
+        # Generate project
+        os.system("cmd /c cd " + fileName)
+        os.system("cmd /c ng new " + projectName +
+                  " --style=scss --routing --strict")
 
-    # Open in VS Code
-    # os.system("cmd /c cd " + "projectName")
-    # os.system("cmd /c code .")
+        # Open in VS Code
+        # os.system("cmd /c cd " + "projectName")
+        # os.system("cmd /c code .")
 
-    # # # Start server
-    # os.system("cmd /c ng serve")
+        # # # Start server
+        # os.system("cmd /c ng serve")
 
 
 frame = tk.Frame(root, bg="#4065A4").place(relwidth=1, relheight=1)
