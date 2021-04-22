@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import *
 from tkinter import filedialog, Text, simpledialog
 import os
-import getpass
 
 # Set window
 root = tk.Tk()
@@ -28,18 +27,19 @@ def generateProject(project):
         fileName = filedialog.askdirectory(
             title="Emplacement du projet", initialdir=homepath + "/Documents/Dev/Web/Front/Angular")
 
-        # Set project name
-        projectName = simpledialog.askstring(title="Nom",
-                                             prompt="Quel est le nom de votre programme ? ")
+        if fileName.strip():
+            # Set project name
+            projectName = simpledialog.askstring(title="Nom",
+                                                 prompt="Quel est le nom de votre programme ? ")
 
-        # Generate project
-        os.chdir(fileName)
-        os.system("cmd /c ng new " + projectName +
-                  " --style=scss --routing --strict")
+            # Generate project
+            os.chdir(fileName)
+            os.system("cmd /c ng new " + projectName +
+                      " --style=scss --routing --strict")
 
-        # Open in VS Code
-        os.chdir(fileName + "/" + projectName)
-        os.system("cmd /c code .")
+            # Open in VS Code
+            os.chdir(fileName + "/" + projectName)
+            os.system("cmd /c code .")
 
     # Laravel
     elif project == "laravel":
@@ -48,18 +48,19 @@ def generateProject(project):
         fileName = filedialog.askdirectory(
             title="Emplacement du projet",  initialdir="C:/laragon/www")
 
-        # Set project name
-        projectName = simpledialog.askstring(title="Nom",
-                                             prompt="Quel est le nom de votre programme ? ")
+        if fileName.strip():
+            # Set project name
+            projectName = simpledialog.askstring(title="Nom",
+                                                 prompt="Quel est le nom de votre programme ? ")
 
-        # Generate project
-        os.chdir(fileName)
-        os.system("cmd /c composer create-project laravel/laravel " +
-                  projectName + " --prefer-dist")
+            # Generate project
+            os.chdir(fileName)
+            os.system("cmd /c composer create-project laravel/laravel " +
+                      projectName + " --prefer-dist")
 
-        # Open in VS Code
-        os.chdir(fileName + "/" + projectName)
-        os.system("cmd /c code .")
+            # Open in VS Code
+            os.chdir(fileName + "/" + projectName)
+            os.system("cmd /c code .")
 
     # React Native
     elif project == "react_native":
@@ -68,18 +69,19 @@ def generateProject(project):
         fileName = filedialog.askdirectory(
             title="Emplacement du projet",  initialdir=homepath + "/Documents/Dev/Mobile/Web/React Native")
 
-        # Set project name
-        projectName = simpledialog.askstring(title="Nom",
-                                             prompt="Quel est le nom de votre programme ? ")
+        if fileName.strip():
+            # Set project name
+            projectName = simpledialog.askstring(title="Nom",
+                                                 prompt="Quel est le nom de votre programme ? ")
 
-        # Generate project
-        os.chdir(fileName)
-        # os.system("cmd /c composer create-project laravel/laravel " +
-        #           projectName + " --prefer-dist")
+            # Generate project
+            os.chdir(fileName)
+            # os.system("cmd /c composer create-project laravel/laravel " +
+            #           projectName + " --prefer-dist")
 
-        # Open in VS Code
-        os.chdir(fileName + "/" + projectName)
-        os.system("cmd /c code .")
+            # Open in VS Code
+            os.chdir(fileName + "/" + projectName)
+            os.system("cmd /c code .")
 
     # Ionic
     elif project == "ionic":
@@ -88,18 +90,19 @@ def generateProject(project):
         fileName = filedialog.askdirectory(
             title="Emplacement du projet",  initialdir=homepath + "/Documents/Dev/Mobile/Web/Ionic")
 
-        # Set project name
-        projectName = simpledialog.askstring(title="Nom",
-                                             prompt="Quel est le nom de votre programme ? ")
+        if fileName.strip():
+            # Set project name
+            projectName = simpledialog.askstring(title="Nom",
+                                                 prompt="Quel est le nom de votre programme ? ")
 
-        # Generate project
-        os.chdir(fileName)
-        os.system("cmd /c ionic start " +
-                  projectName + " blank --type=angular")
+            # Generate project
+            os.chdir(fileName)
+            os.system("cmd /c ionic start " +
+                      projectName + " blank --type=angular")
 
-        # Open in VS Code
-        os.chdir(fileName + "/" + projectName)
-        os.system("cmd /c code .")
+            # Open in VS Code
+            os.chdir(fileName + "/" + projectName)
+            os.system("cmd /c code .")
 
 
 tk.Button(frame, text="Angular", padx=10,
