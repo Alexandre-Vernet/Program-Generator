@@ -8,6 +8,8 @@ root = tk.Tk()
 root.title("Program Generator")
 root.geometry("300x450")
 root.minsize(300, 450)
+root.tk.call('wm', 'iconphoto', root._w,
+             tk.PhotoImage(file='img/icon.png'))
 
 frame = tk.Frame(root, bg="#4065A4").place(relwidth=1, relheight=1)
 
