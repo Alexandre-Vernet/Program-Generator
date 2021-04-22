@@ -19,60 +19,100 @@ title = Label(root, text="Program Generator",
 homepath = os.path.expanduser(os.getenv('USERPROFILE'))
 
 
-def generateProjectAngular():
+def generateProject(project):
 
-    # Set repository destination
-    fileName = filedialog.askdirectory(
-        title="Emplacement du projet", initialdir=homepath + "/Documents/Dev/Web/Front/Angular")
+    # Angular
+    if project == "angular":
 
-    # Set project name
-    projectName = simpledialog.askstring(title="Nom",
-                                         prompt="Quel est le nom de votre programme ? ")
+        # Set repository destination
+        fileName = filedialog.askdirectory(
+            title="Emplacement du projet", initialdir=homepath + "/Documents/Dev/Web/Front/Angular")
 
-    # Generate project
-    os.chdir(fileName)
-    os.system("cmd /c ng new " + projectName +
-              " --style=scss --routing --strict")
+        # Set project name
+        projectName = simpledialog.askstring(title="Nom",
+                                             prompt="Quel est le nom de votre programme ? ")
 
-    # Open in VS Code
-    os.chdir(fileName + "/" + projectName)
-    os.system("cmd /c code .")
+        # Generate project
+        os.chdir(fileName)
+        os.system("cmd /c ng new " + projectName +
+                  " --style=scss --routing --strict")
 
-    # Start server
-    # os.system("cmd /c ng serve --o")
+        # Open in VS Code
+        os.chdir(fileName + "/" + projectName)
+        os.system("cmd /c code .")
+
+    # Laravel
+    elif project == "laravel":
+
+        # Set repository destination
+        fileName = filedialog.askdirectory(
+            title="Emplacement du projet",  initialdir="C:/laragon/www")
+
+        # Set project name
+        projectName = simpledialog.askstring(title="Nom",
+                                             prompt="Quel est le nom de votre programme ? ")
+
+        # Generate project
+        os.chdir(fileName)
+        os.system("cmd /c composer create-project laravel/laravel " +
+                  projectName + " --prefer-dist")
+
+        # Open in VS Code
+        os.chdir(fileName + "/" + projectName)
+        os.system("cmd /c code .")
+
+    # React Native
+    elif project == "react_native":
+
+        # Set repository destination
+        fileName = filedialog.askdirectory(
+            title="Emplacement du projet",  initialdir=homepath + "/Documents/Dev/Mobile/Web/React Native")
+
+        # Set project name
+        projectName = simpledialog.askstring(title="Nom",
+                                             prompt="Quel est le nom de votre programme ? ")
+
+        # Generate project
+        os.chdir(fileName)
+        # os.system("cmd /c composer create-project laravel/laravel " +
+        #           projectName + " --prefer-dist")
+
+        # Open in VS Code
+        os.chdir(fileName + "/" + projectName)
+        os.system("cmd /c code .")
+
+    # Ionic
+    elif project == "ionic":
+
+        # Set repository destination
+        fileName = filedialog.askdirectory(
+            title="Emplacement du projet",  initialdir=homepath + "/Documents/Dev/Mobile/Web/Ionic")
+
+        # Set project name
+        projectName = simpledialog.askstring(title="Nom",
+                                             prompt="Quel est le nom de votre programme ? ")
+
+        # Generate project
+        os.chdir(fileName)
+        os.system("cmd /c ionic start " +
+                  projectName + " blank --type=angular")
+
+        # Open in VS Code
+        os.chdir(fileName + "/" + projectName)
+        os.system("cmd /c code .")
 
 
-def generateProjectLaravel():
+tk.Button(frame, text="Angular", padx=10,
+          pady=5, fg="white", bg="#c3002f", font=("Courrier, 14"), command=lambda: generateProject("angular")).pack(fill=X, expand=YES)
 
-    # Set repository destination
-    fileName = filedialog.askdirectory(
-        title="Emplacement du projet",  initialdir="C:/laragon/www")
+tk.Button(frame, text="Laravel", padx=10,
+          pady=5, fg="white", bg="#ff2d20", font=("Courrier, 14"), command=lambda: generateProject("laravel")).pack(fill=X, expand=YES)
 
-    # Set project name
-    projectName = simpledialog.askstring(title="Nom",
-                                         prompt="Quel est le nom de votre programme ? ")
+tk.Button(frame, text="React Native", padx=10,
+          pady=5, fg="white", bg="#61dafb", font=("Courrier, 14"), command=lambda: generateProject("react_native")).pack(fill=X, expand=YES)
 
-    # Generate project
-    os.chdir(fileName)
-    os.system("cmd /c composer create-project laravel/laravel " +
-              projectName + " --prefer-dist")
-
-    # Open in VS Code
-    os.chdir(fileName + "/" + projectName)
-    os.system("cmd /c code .")
-
-
-btnAngular = tk.Button(frame, text="Angular", padx=10,
-                       pady=5, fg="white", bg="#c3002f", font=("Courrier, 14"), command=generateProjectAngular).pack(fill=X, expand=YES)
-
-btnLaravel = tk.Button(frame, text="Laravel", padx=10,
-                       pady=5, fg="white", bg="#ff2d20", font=("Courrier, 14"), command=generateProjectLaravel).pack(fill=X, expand=YES)
-
-btnReactNative = tk.Button(frame, text="React Native", padx=10,
-                           pady=5, fg="white", bg="#61dafb", font=("Courrier, 14"), command=generateProjectAngular).pack(fill=X, expand=YES)
-
-btnIonic = tk.Button(frame, text="Ionic", padx=10,
-                     pady=5, fg="white", bg="#4e8df7", font=("Courrier, 14"), command=generateProjectAngular).pack(fill=X, expand=YES)
+tk.Button(frame, text="Ionic", padx=10,
+          pady=5, fg="white", bg="#4e8df7", font=("Courrier, 14"), command=lambda: generateProject("ionic")).pack(fill=X, expand=YES)
 
 
 root.mainloop()
