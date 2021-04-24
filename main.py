@@ -1,7 +1,10 @@
 import tkinter as tk
 from tkinter import *
+from tkinter import ttk
 from tkinter import filedialog, Text, simpledialog
 import os
+import time
+
 
 # Set window
 root = tk.Tk()
@@ -118,6 +121,23 @@ tk.Button(frame, text="React Native", padx=10,
 
 tk.Button(frame, text="Ionic", padx=10,
           pady=5, fg="white", bg="#4e8df7", font=("Courrier, 14"), command=lambda: generateProject("ionic")).pack(fill=X, expand=YES)
+
+
+def step():
+    # progressbar.start(50)
+
+    for i in range(15):
+        progressbar['value'] += 5
+        root.update_idletasks()
+        time.sleep(1)
+    # progressbar.stop()
+
+
+progressbar = ttk.Progressbar(frame, orient=HORIZONTAL,
+                              mode='determinate')
+progressbar.pack(fill=X, expand=YES)
+
+Button(frame, text="Progress", command=step).pack()
 
 
 root.mainloop()
