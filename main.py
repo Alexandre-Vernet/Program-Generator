@@ -42,21 +42,21 @@ def generateProject(project):
             os.system("cmd /c ng new " + projectName +
                       " --style=scss --routing --strict")
 
-  # React
-      if project == "react":
+    # React
+    if project == "react":
 
-          # Set repository destination
-          fileName = filedialog.askdirectory(
-              title="Emplacement du projet", initialdir=homepath + "/Documents/Dev/Web/Front/React")
+        # Set repository destination
+        fileName = filedialog.askdirectory(
+            title="Emplacement du projet", initialdir=homepath + "/Documents/Dev/Web/Front/React")
 
-          if fileName.strip():
-              # Set project name
-              projectName = simpledialog.askstring(title="Name",
-                                                   prompt="What's the name of your project ? ")
+        if fileName.strip():
+            # Set project name
+            projectName = simpledialog.askstring(title="Name",
+                                                 prompt="What's the name of your project ? ")
 
-              # Generate project
-              os.chdir(fileName)
-              os.system("cmd /c npx create-react-app " + projectName)
+            # Generate project
+            os.chdir(fileName)
+            os.system("cmd /c npx create-react-app " + projectName)
 
 
     # Laravel
@@ -75,25 +75,6 @@ def generateProject(project):
             os.chdir(fileName)
             os.system("cmd /c composer create-project laravel/laravel " +
                       projectName + " --prefer-dist")
-
-
-    # React Native
-    elif project == "react_native":
-
-        # Set repository destination
-        fileName = filedialog.askdirectory(
-            title="Emplacement du projet",  initialdir=homepath + "/Documents/Dev/Mobile/Web/React Native")
-
-        if fileName.strip():
-            # Set project name
-            projectName = simpledialog.askstring(title="Name",
-                                                 prompt="What's the name of your project ? ")
-
-            # Generate project
-            os.chdir(fileName)
-            # os.system("cmd /c composer create-project laravel/laravel " +
-            #           projectName + " --prefer-dist")
-
 
     # Ionic
     elif project == "ionic":
@@ -123,28 +104,8 @@ tk.Button(frame, text="React", padx=10,
 tk.Button(frame, text="Laravel", padx=10,
           pady=5, fg="white", bg="#ff2d20", font=("Courrier, 14"), command=lambda: generateProject("laravel")).pack(fill=X, expand=YES)
 
-tk.Button(frame, text="React Native", padx=10,
-          pady=5, fg="white", bg="#61dafb", font=("Courrier, 14"), command=lambda: generateProject("react_native")).pack(fill=X, expand=YES)
-
 tk.Button(frame, text="Ionic", padx=10,
           pady=5, fg="white", bg="#4e8df7", font=("Courrier, 14"), command=lambda: generateProject("ionic")).pack(fill=X, expand=YES)
-
-
-def step():
-    # progressbar.start(50)
-
-    for i in range(15):
-        progressbar['value'] += 5
-        root.update_idletasks()
-        time.sleep(1)
-    # progressbar.stop()
-
-
-progressbar = ttk.Progressbar(frame, orient=HORIZONTAL,
-                              mode='determinate')
-progressbar.pack(fill=X, expand=YES)
-
-Button(frame, text="Progress", command=step).pack()
 
 
 root.mainloop()
