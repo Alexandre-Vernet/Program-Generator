@@ -30,7 +30,7 @@ def generateProject(project):
 
         # Set repository destination
         fileName = filedialog.askdirectory(
-            title="Emplacement du projet", initialdir=homepath + "/Documents/Dev/Web/Front/Angular")
+            title="Target project", initialdir=homepath + "/Documents/Dev/Web/Front/Angular")
 
         if fileName.strip():
             # Set project name
@@ -47,7 +47,7 @@ def generateProject(project):
 
         # Set repository destination
         fileName = filedialog.askdirectory(
-            title="Emplacement du projet", initialdir=homepath + "/Documents/Dev/Web/Front/React")
+            title="Target project", initialdir=homepath + "/Documents/Dev/Web/Front/React")
 
         if fileName.strip():
             # Set project name
@@ -58,13 +58,29 @@ def generateProject(project):
             os.chdir(fileName)
             os.system("cmd /c npx create-react-app " + projectName)
 
+    # NodeJS
+    if project == "node":
+
+        # Set repository destination
+        fileName = filedialog.askdirectory(
+            title="Target project", initialdir=homepath + "/Documents/Dev/Web/Back/NodeJS")
+
+        if fileName.strip():
+            # Set project name
+            projectName = simpledialog.askstring(title="Name",
+                                                 prompt="What's the name of your project ? ")
+
+            # Generate project
+            os.chdir(fileName)
+            os.system("cmd /c npm init -y")
+
 
     # Laravel
     elif project == "laravel":
 
         # Set repository destination
         fileName = filedialog.askdirectory(
-            title="Emplacement du projet",  initialdir="C:/laragon/www")
+            title="Target project",  initialdir="C:/laragon/www")
 
         if fileName.strip():
             # Set project name
@@ -81,7 +97,7 @@ def generateProject(project):
 
         # Set repository destination
         fileName = filedialog.askdirectory(
-            title="Emplacement du projet",  initialdir=homepath + "/Documents/Dev/Mobile/Web/Ionic")
+            title="Target project",  initialdir=homepath + "/Documents/Dev/Mobile/Web/Ionic")
 
         if fileName.strip():
             # Set project name
@@ -100,6 +116,9 @@ tk.Button(frame, text="Angular", padx=10,
 
 tk.Button(frame, text="React", padx=10,
         pady=5, fg="white", bg="#61DAFB", font=("Courrier, 14"), command=lambda: generateProject("react")).pack(fill=X, expand=YES)
+
+tk.Button(frame, text="NodeJS", padx=10,
+        pady=5, fg="white", bg="#79B461", font=("Courrier, 14"), command=lambda: generateProject("node")).pack(fill=X, expand=YES)
 
 tk.Button(frame, text="Laravel", padx=10,
           pady=5, fg="white", bg="#ff2d20", font=("Courrier, 14"), command=lambda: generateProject("laravel")).pack(fill=X, expand=YES)
