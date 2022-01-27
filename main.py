@@ -29,16 +29,16 @@ def generateProject(project):
     if project == "angular":
 
         # Set repository destination
-        fileName = filedialog.askdirectory(
+        projectTarget = filedialog.askdirectory(
             title="Target project", initialdir=homepath + "/Documents/Dev/Web/Front/Angular")
 
-        if fileName.strip():
+        if projectTarget.strip():
             # Set project name
             projectName = simpledialog.askstring(title="Name",
                                                  prompt="What's the name of your project ? ")
 
             # Generate project
-            os.chdir(fileName)
+            os.chdir(projectTarget)
             os.system("cmd /c ng new " + projectName +
                       " --style=scss --routing --strict")
 
@@ -46,49 +46,52 @@ def generateProject(project):
     if project == "react":
 
         # Set repository destination
-        fileName = filedialog.askdirectory(
+        projectTarget = filedialog.askdirectory(
             title="Target project", initialdir=homepath + "/Documents/Dev/Web/Front/React")
 
-        if fileName.strip():
+        if projectTarget.strip():
             # Set project name
             projectName = simpledialog.askstring(title="Name",
                                                  prompt="What's the name of your project ? ")
 
             # Generate project
-            os.chdir(fileName)
+            os.chdir(projectTarget)
             os.system("cmd /c npx create-react-app " + projectName)
 
     # NodeJS
     if project == "node":
 
         # Set repository destination
-        fileName = filedialog.askdirectory(
+        projectTarget = filedialog.askdirectory(
             title="Target project", initialdir=homepath + "/Documents/Dev/Web/Back/NodeJS")
 
-        if fileName.strip():
+        if projectTarget.strip():
             # Set project name
             projectName = simpledialog.askstring(title="Name",
                                                  prompt="What's the name of your project ? ")
 
             # Generate project
-            os.chdir(fileName)
-            os.system("cmd /c npm init -y")
+            os.chdir(projectTarget)
+            os.system("cmd /c npm init")
+
+            # Install express and nodemon
+            os.system("cmd /c npm install express nodemon")
 
 
     # Laravel
     elif project == "laravel":
 
         # Set repository destination
-        fileName = filedialog.askdirectory(
+        projectTarget = filedialog.askdirectory(
             title="Target project",  initialdir="C:/laragon/www")
 
-        if fileName.strip():
+        if projectTarget.strip():
             # Set project name
             projectName = simpledialog.askstring(title="Name",
                                                  prompt="What's the name of your project ? ")
 
             # Generate project
-            os.chdir(fileName)
+            os.chdir(projectTarget)
             os.system("cmd /c composer create-project laravel/laravel " +
                       projectName + " --prefer-dist")
 
@@ -96,16 +99,16 @@ def generateProject(project):
     elif project == "ionic":
 
         # Set repository destination
-        fileName = filedialog.askdirectory(
+        projectTarget = filedialog.askdirectory(
             title="Target project",  initialdir=homepath + "/Documents/Dev/Mobile/Web/Ionic")
 
-        if fileName.strip():
+        if projectTarget.strip():
             # Set project name
             projectName = simpledialog.askstring(title="Name",
                                                  prompt="What's the name of your project ? ")
 
             # Generate project
-            os.chdir(fileName)
+            os.chdir(projectTarget)
             os.system("cmd /c ionic start " +
                       projectName + " blank --type=angular")
 
