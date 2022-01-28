@@ -28,9 +28,6 @@ def generate(project):
             os.system("cmd /c ng new " + projectName +
                       " --style=scss --routing --strict")
 
-            # Open project in explorer
-            os.system("cmd /c start " + projectTarget + "/" + projectName)
-
     # React
     if project == "react":
 
@@ -47,8 +44,6 @@ def generate(project):
             os.chdir(projectTarget)
             os.system("cmd /c npx create-react-app " + projectName)
 
-            # Open project in explorer
-            os.system("cmd /c start " + projectTarget + "/" + projectName)
 
     # NodeJS
     if project == "node":
@@ -79,8 +74,6 @@ def generate(project):
             # Install express, nodemon, nodemon
             os.system("cmd /c npm install express nodemon axios")
 
-            # Open project in explorer
-            os.system("cmd /c start " + projectTarget + "/" + projectName)
 
 
     # Laravel
@@ -100,8 +93,6 @@ def generate(project):
             os.system("cmd /c composer create-project laravel/laravel " +
                       projectName + " --prefer-dist")
 
-            # Open project in explorer
-            os.system("cmd /c start " + projectTarget + "/" + projectName)
 
     # Ionic
     elif project == "ionic":
@@ -120,5 +111,7 @@ def generate(project):
             os.system("cmd /c ionic start " +
                       projectName + " blank --type=angular")
 
-            # Open project in explorer
-            os.system("cmd /c start " + projectTarget + "/" + projectName)
+
+
+    # Open project in explorer
+    os.system("cmd /c start " + projectTarget + "/" + projectName)
