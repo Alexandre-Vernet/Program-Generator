@@ -75,6 +75,23 @@ def generate(project):
             os.system("cmd /c npm install express nodemon axios")
 
 
+    # NX
+    if project == "nx":
+
+        # Set repository destination
+        projectTarget = filedialog.askdirectory(
+            title="Target project", initialdir=homepath + "/Documents/Dev/Web/")
+
+        if projectTarget.strip():
+            # Set project name
+            projectName = simpledialog.askstring(title="Name",
+                                                 prompt="What's the name of your project ? ")
+
+            # Generate project
+            os.chdir(projectTarget)
+            os.system("cmd /c npx create-nx-workspace " + projectName)
+
+
 
     # Laravel
     elif project == "laravel":

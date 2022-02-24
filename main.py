@@ -33,6 +33,9 @@ tk.Button(frame, text="React", padx=10,
 tk.Button(frame, text="NodeJS", padx=10,
         pady=5, fg="white", bg="#79B461", font=(fontBtn), command=lambda: generate("node")).pack(fill=X, expand=YES)
 
+tk.Button(frame, text="NX", padx=10,
+          pady=5, fg="white", bg="#183156", font=(fontBtn), command=lambda: generate("nx")).pack(fill=X, expand=YES)
+
 tk.Button(frame, text="Laravel", padx=10,
           pady=5, fg="white", bg="#ff2d20", font=(fontBtn), command=lambda: generate("laravel")).pack(fill=X, expand=YES)
 
