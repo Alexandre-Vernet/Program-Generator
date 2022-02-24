@@ -16,7 +16,7 @@ def generate(project):
 
         # Set repository destination
         projectTarget = filedialog.askdirectory(
-            title="Target project", initialdir=homepath + "/Documents/Dev/Web/Front/Angular")
+            title="Target project", initialdir=homepath + "/Documents/Dev/Web/")
 
         if projectTarget.strip():
             # Set project name
@@ -33,7 +33,7 @@ def generate(project):
 
         # Set repository destination
         projectTarget = filedialog.askdirectory(
-            title="Target project", initialdir=homepath + "/Documents/Dev/Web/Front/React")
+            title="Target project", initialdir=homepath + "/Documents/Dev/Web/")
 
         if projectTarget.strip():
             # Set project name
@@ -50,7 +50,7 @@ def generate(project):
 
         # Set repository destination
         projectTarget = filedialog.askdirectory(
-            title="Target project", initialdir=homepath + "/Documents/Dev/Web/Back/NodeJS")
+            title="Target project", initialdir=homepath + "/Documents/Dev/Web/")
 
         if projectTarget.strip():
             # Set project name
@@ -116,7 +116,7 @@ def generate(project):
 
         # Set repository destination
         projectTarget = filedialog.askdirectory(
-            title="Target project",  initialdir=homepath + "/Documents/Dev/Mobile/Web/Ionic")
+            title="Target project",  initialdir=homepath + "/Documents/Dev/Mobile/")
 
         if projectTarget.strip():
             # Set project name
