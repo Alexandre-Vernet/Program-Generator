@@ -92,7 +92,7 @@ def generate(project):
 
             # Generate project
             os.chdir(projectTarget)
-            os.system("cmd /c npx create-nx-workspace " + projectName)
+            os.system("cmd /c npx create-nx-workspace --preset=angular-nest --appName=front --style=scss --nx-cloud=N " + projectName)
 
 
 
