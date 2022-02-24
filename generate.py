@@ -5,8 +5,11 @@ from tkinter import filedialog, Text, simpledialog
 import os
 import time
 
-# Set home path
-homepath = os.path.expanduser(os.getenv('USERPROFILE'))
+# Get user directory
+homePath = os.path.expanduser(os.getenv('USERPROFILE'))
+
+webPath = homePath + '/Documents/Dev/Web/'
+mobilePath = homePath + '/Documents/Dev/Mobile/'
 
 
 def generate(project):
@@ -16,7 +19,7 @@ def generate(project):
 
         # Set repository destination
         projectTarget = filedialog.askdirectory(
-            title="Target project", initialdir=homepath + "/Documents/Dev/Web/")
+            title="Target project", initialdir=webPath)
 
         if projectTarget.strip():
             # Set project name
@@ -33,7 +36,7 @@ def generate(project):
 
         # Set repository destination
         projectTarget = filedialog.askdirectory(
-            title="Target project", initialdir=homepath + "/Documents/Dev/Web/")
+            title="Target project", initialdir=webPath)
 
         if projectTarget.strip():
             # Set project name
@@ -50,7 +53,7 @@ def generate(project):
 
         # Set repository destination
         projectTarget = filedialog.askdirectory(
-            title="Target project", initialdir=homepath + "/Documents/Dev/Web/")
+            title="Target project", initialdir=webPath)
 
         if projectTarget.strip():
             # Set project name
@@ -80,7 +83,7 @@ def generate(project):
 
         # Set repository destination
         projectTarget = filedialog.askdirectory(
-            title="Target project", initialdir=homepath + "/Documents/Dev/Web/")
+            title="Target project", initialdir=webPath)
 
         if projectTarget.strip():
             # Set project name
@@ -116,7 +119,7 @@ def generate(project):
 
         # Set repository destination
         projectTarget = filedialog.askdirectory(
-            title="Target project",  initialdir=homepath + "/Documents/Dev/Mobile/")
+            title="Target project",  initialdir=mobilePath)
 
         if projectTarget.strip():
             # Set project name
