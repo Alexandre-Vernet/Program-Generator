@@ -70,12 +70,12 @@ def generate(project):
             os.system("cmd /c npm init -y")
 
             # Create server.js file with default code
-            code = "const express = require('express');\nconst app = express();\nconst port = process.env.PORT || 3333;\nconst axios = require('axios');\n\napp.use(express.static(__dirname + '/public'));\napp.use(express.json());\n\n\napp.get('/', (req, res) => {\n    res.send('Hello World!');\n});\n\n\napp.listen(port, () => {\n    console.log(`App listening on port ${ port } !`);\n});"
+            code = "const express = require('express');\nconst app = express();\nrequire('dotenv').config();\nconst port = process.env.PORT || 3333;\n\n\napp.use(express.static('public'));\napp.use(express.json());\n\n\napp.get('/', (req, res) => {\n    res.send('Hello World!');\n});\n\n\napp.listen(port, () => {\n    console.log(`App listening on port ${ port }`);\n});"
             with open("server.js", "w") as file:
                 file.write(code)
 
             # Install express, nodemon, nodemon
-            os.system("cmd /c npm install express nodemon axios")
+            os.system("cmd /c npm install express nodemon dotenv")
 
 
     # NX
