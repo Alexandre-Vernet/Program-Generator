@@ -30,9 +30,9 @@ Generate React project
 npx create-react-app " + projectName
 ``
 
-## NodeJS
+## Express
 
-Generate NodeJS project with a ```server.js``` file with :
+Generate Express project with a ```server.js``` file with :
 
 - Express
 - Axios
