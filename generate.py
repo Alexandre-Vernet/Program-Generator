@@ -49,7 +49,7 @@ def generate(project):
 
 
     # NodeJS
-    if project == "node":
+    if project == "express":
 
         # Set repository destination
         projectTarget = filedialog.askdirectory(
