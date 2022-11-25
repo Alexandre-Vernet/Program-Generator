@@ -48,7 +48,7 @@ def generate(project):
             os.system("cmd /c npx create-react-app " + projectName)
 
 
-    # NodeJS
+    # Express
     if project == "express":
 
         # Set repository destination
