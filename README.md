@@ -1,19 +1,22 @@
 # Program-Generator
 
-Generate fast project for
-
+## Technologies
+Generate fast project for :
 - Angular
 - React
-- NodeJS (Express)
+- Express
 - NX
 - Laravel
 - Ionic
 
-
+## Locations
 - All the web projects are created in the `[USER]/Documents/Dev/Web/` folder.
 - All the mobile projects are created in the `[USER]/Documents/Dev/Mobile/` folder.
 
-## Angular
+
+## Template
+
+### Angular
 
 Generate Angular project with :
 
@@ -25,7 +28,7 @@ Generate Angular project with :
 ng new *projectName* --style=scss --routing --strict
 ``
 
-## React
+### React
 
 Generate React project
 
@@ -33,7 +36,7 @@ Generate React project
 npx create-react-app *projectName*
 ``
 
-## Express
+### Express
 
 Generate Express project with a ```server.js``` file with dependencies :
 - Express
@@ -64,7 +67,7 @@ app.listen(port, () => {
 });
 ```
 
-## NX
+### NX
 
 Generate NX project with :
 
@@ -77,7 +80,7 @@ Generate NX project with :
 npx create-nx-workspace --preset=angular-nest --appName=front --style=scss --nx-cloud=N *projectName*
 ``
 
-## Laravel
+### Laravel
 
 Generate Laravel project
 
@@ -85,7 +88,7 @@ Generate Laravel project
 composer create-project laravel/laravel *projectName* --prefer-dist"
 ``
 
-## Ionic
+### Ionic
 
 Generate Ionic project
 
