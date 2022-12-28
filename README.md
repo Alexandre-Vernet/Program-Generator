@@ -9,6 +9,7 @@ Generate fast project for
 - Laravel
 - Ionic
 
+
 - All the web projects are created in the `[USER]/Documents/Dev/Web/` folder.
 - All the mobile projects are created in the `[USER]/Documents/Dev/Mobile/` folder.
 
