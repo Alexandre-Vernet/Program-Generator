@@ -1,15 +1,22 @@
 # Program-Generator
 
-Generate fast project for
-
+## Technologies
+Generate fast project for :
 - Angular
 - React
-- NodeJS (Express)
+- Express
 - NX
 - Laravel
 - Ionic
 
-## Angular
+## Locations
+- All the web projects are created in the `[USER]/Documents/Dev/Web/` folder.
+- All the mobile projects are created in the `[USER]/Documents/Dev/Mobile/` folder.
+
+
+## Template
+
+### Angular
 
 Generate Angular project with :
 
@@ -17,33 +24,50 @@ Generate Angular project with :
 - Routing
 - Disable strict mode
 
-``
-ng new " + projectName +
-" --style=scss --routing --strict"
-``
+```
+ng new *projectName* --style=scss --routing --strict
+```
 
-## React
+### React
 
 Generate React project
 
-``
-npx create-react-app " + projectName
-``
+```
+npx create-react-app *projectName*
+```
 
-## Express
+### Express
 
-Generate Express project with a ```server.js``` file with :
-
+Generate Express project with a ```server.js``` file with dependencies :
 - Express
 - Axios
 - Nodemon
-- Template code with default route and server listening
 
-``
+Finally, it's add a template code with default route and server listening
+
+```
 npm init -y
-``
+```
 
-## NX
+```js
+const express = require('express');
+const app = express();
+require('dotenv').config();
+const port = process.env.PORT || 3333;
+
+app.use(express.static('public'));
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+app.listen(port, () => {
+  console.log(`App listening on port ${ port }`);
+});
+```
+
+### NX
 
 Generate NX project with :
 
@@ -52,22 +76,22 @@ Generate NX project with :
 - SCSS for styles
 - No nx-cloud
 
-``
-npx create-nx-workspace --preset=angular-nest --appName=front --style=scss --nx-cloud=N " + projectName
-``
+```
+npx create-nx-workspace --preset=angular-nest --appName=front --style=scss --nx-cloud=N *projectName*
+```
 
-## Laravel
+### Laravel
 
 Generate Laravel project
 
-``
-composer create-project laravel/laravel " + projectName + " --prefer-dist"
-``
+```
+composer create-project laravel/laravel *projectName* --prefer-dist"
+```
 
-## Ionic
+### Ionic
 
 Generate Ionic project
 
-``
-ionic start " + projectName + " blank --type=angular"
-``
+```
+ionic start "*projectName* blank --type=angular
+```
